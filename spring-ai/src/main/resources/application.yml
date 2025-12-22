@@ -1,0 +1,34 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: schedule-backend
+  profiles:
+    active: dev
+
+logging:
+  file:
+    path: ./logs
+  level:
+    #    释放sql 记录
+    com.feeyo.schedule.backend.mapper: info
+    org.apache.kafka: INFO
+
+
+# 开启驼峰命名
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+# 监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+

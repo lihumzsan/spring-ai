@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    target:
+      url: jdbc:mysql://192.168.101.227:3307/demo?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useSSL=false&autoReconnect=true
+      username: feeyo
+      password: feeyo#1234
+      driver-class-name: com.mysql.jdbc.Driver
+      hikari:
+        # 连接最大生命周期
+        max-lifetime: 1800000
+        keepalive-time: 300000
+        # 空闲连接超时
+        idle-timeout: 600000
+        # 连接超时时间
+        connection-timeout: 30000
+        validation-timeout: 5000
+        # 最大连接数
+        maximum-pool-size: 10
+        # 最小空闲连接
+        minimum-idle: 5
+        connection-test-query: SELECT 1
+  # redis 配置
+  data:
+    redisson:
+      nodeAddresses:
+        - redis://192.168.101.221:6479
+      password: feeyo#1234
+      timeout: 3000
+      connectionPoolSize: 64
+      connectionMinimumIdleSize: 10
+      database: 3
+
+flightschedule:
+  base-url: http://127.0.0.1:8088
+
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
