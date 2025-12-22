@@ -1,11 +1,16 @@
 server:
-  port: 8089
+  port: 8083
 
 spring:
   application:
-    name: schedule-backend
+    name: ollama-AI
   profiles:
     active: dev
+  ai:
+    ollama:
+      base-url: http://127.0.0.1:11434
+      chat:
+        model: huihui_ai/qwen3-abliterated:8b
 
 logging:
   file:

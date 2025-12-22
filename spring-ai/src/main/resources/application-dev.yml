@@ -28,7 +28,7 @@ spring:
       timeout: 3000
       connectionPoolSize: 64
       connectionMinimumIdleSize: 10
-      database: 3
+      database: 2
 
 flightschedule:
   base-url: http://127.0.0.1:8088
