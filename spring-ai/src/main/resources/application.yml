@@ -10,7 +10,7 @@ spring:
     ollama:
       base-url: http://127.0.0.1:11434
       chat:
-        model: huihui_ai/qwen3-abliterated:8b
+        model: deepseek-v3.1:671b-cloud
 
 logging:
   file:

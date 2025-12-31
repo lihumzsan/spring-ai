@@ -25,21 +25,9 @@ public class RedisConfig {
     private int timeout;
     private int database;
 
-    @Value("${spring.profiles.active:default}")
-    private String activeProfile;
-
     @Bean(destroyMethod = "shutdown")
     public RedissonClient redisson() {
         Config config = new Config();
-        if ("prod".equals(activeProfile)) {
-            config.useClusterServers()
-                    .addNodeAddress(nodeAddresses.toArray(new String[0]))
-                    .setTimeout(timeout)
-                    .setRetryAttempts(3)
-                    .setMasterConnectionPoolSize(connectionPoolSize)
-                    .setMasterConnectionMinimumIdleSize(connectionMinimumIdleSize);
-            return Redisson.create(config);
-        }
         String host = nodeAddresses.getFirst();
         config.useSingleServer()
                 .setAddress(host)
